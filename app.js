@@ -48,7 +48,7 @@ let cartas = [
 ]
 
 // elementos html
-score = document.getElementById(`circle${i}`);
+
 result_div = document.getElementById('result');
 cardUserP = document.getElementById('imgGato');
 nameUserP = document.getElementById('gatoP');
@@ -167,87 +167,106 @@ function draw() {
 	img2.src = deckVoce[2].img;
 }
 
-function getUserChoice() {
-	int0_p.addEventListener('click', function () {
+function Int0UserChoice() {
 		userNome = deckVoce[0].nome;
 		game(deckVoce[0].int, getComputerChoice('int_pc'));
 		cardUserP.src = deckVoce[0].img;
 		nameUserP.innerHTML = deckVoce[0].nome;
 		atbUserP.innerHTML = deckVoce[0].int;
 		carta0.classList.add('hidden');
-	})
+}
 
-	int1_p.addEventListener('click', function () {
-		userNome = deckVoce[1].nome;
-		game(deckVoce[1].int, getComputerChoice('int_pc'));
-		cardUserP.src = deckVoce[1].img;
-		nameUserP.innerHTML = deckVoce[1].nome;
-		atbUserP.innerHTML = deckVoce[1].int;
-		carta1.classList.add('hidden');
-	})
+function Int1UserChoice() {
+	userNome = deckVoce[1].nome;
+	game(deckVoce[1].int, getComputerChoice('int_pc'));
+	cardUserP.src = deckVoce[1].img;
+	nameUserP.innerHTML = deckVoce[1].nome;
+	atbUserP.innerHTML = deckVoce[1].int;
+	carta1.classList.add('hidden');
+}
 
-	int2_p.addEventListener('click', function () {
-		userNome = deckVoce[2].nome;
-		game(deckVoce[2].int, getComputerChoice('int_pc'));
-		cardUserP.src = deckVoce[2].img;;
-		nameUserP.innerHTML = deckVoce[2].nome;
-		atbUserP.innerHTML = deckVoce[2].int;
-		carta2.classList.add('hidden');
-	})
+function Int2UserChoice() {
+	userNome = deckVoce[2].nome;
+	game(deckVoce[2].int, getComputerChoice('int_pc'));
+	cardUserP.src = deckVoce[2].img;;
+	nameUserP.innerHTML = deckVoce[2].nome;
+	atbUserP.innerHTML = deckVoce[2].int;
+	carta2.classList.add('hidden');
+}
 
-	vel0_p.addEventListener('click', function () {
-		userNome = deckVoce[0].nome;
-		game(deckVoce[0].vel, getComputerChoice('vel_pc'));
-		cardUserP.src = deckVoce[0].img;
-		nameUserP.innerHTML = deckVoce[0].nome;
-		atbUserP.innerHTML = deckVoce[0].vel;
-		carta0.classList.add('hidden');
-	})
+function vel0UserChoice() {
+	userNome = deckVoce[0].nome;
+	game(deckVoce[0].vel, getComputerChoice('vel_pc'));
+	cardUserP.src = deckVoce[0].img;
+	nameUserP.innerHTML = deckVoce[0].nome;
+	atbUserP.innerHTML = deckVoce[0].vel;
+	carta0.classList.add('hidden');
+}
 
-	vel1_p.addEventListener('click', function () {
-		userNome = deckVoce[1].nome;
-		game(deckVoce[1].vel, getComputerChoice('vel_pc'));
-		cardUserP.src = deckVoce[1].img;
-		nameUserP.innerHTML = deckVoce[1].nome;
-		atbUserP.innerHTML = deckVoce[1].vel;
-		carta1.classList.add('hidden');
-	})
+function vel1UserChoice() {
+	userNome = deckVoce[1].nome;
+	game(deckVoce[1].vel, getComputerChoice('vel_pc'));
+	cardUserP.src = deckVoce[1].img;
+	nameUserP.innerHTML = deckVoce[1].nome;
+	atbUserP.innerHTML = deckVoce[1].vel;
+	carta1.classList.add('hidden');
+}
 
-	vel2_p.addEventListener('click', function () {
-		userNome = deckVoce[2].nome;
-		game(deckVoce[2].vel, getComputerChoice('vel_pc'));
-		cardUserP.src = deckVoce[2].img;
-		nameUserP.innerHTML = deckVoce[2].nome;
-		atbUserP.innerHTML = deckVoce[2].vel;
-		carta2.classList.add('hidden');
-	})
+function vel2UserChoice() {
+	userNome = deckVoce[2].nome;
+	game(deckVoce[2].vel, getComputerChoice('vel_pc'));
+	cardUserP.src = deckVoce[2].img;
+	nameUserP.innerHTML = deckVoce[2].nome;
+	atbUserP.innerHTML = deckVoce[2].vel;
+	carta2.classList.add('hidden');
+}
 
-	for0_p.addEventListener('click', function () {
-		userNome = deckVoce[0].nome;
-		game(deckVoce[0].for, getComputerChoice('for_pc'));
-		cardUserP.src = deckVoce[0].img;
-		nameUserP.innerHTML = deckVoce[0].nome;
-		atbUserP.innerHTML = deckVoce[0].for;
-		carta0.classList.add('hidden');
-	})
+function for0UserChoice() {
+	userNome = deckVoce[0].nome;
+	game(deckVoce[0].for, getComputerChoice('for_pc'));
+	cardUserP.src = deckVoce[0].img;
+	nameUserP.innerHTML = deckVoce[0].nome;
+	atbUserP.innerHTML = deckVoce[0].for;
+	carta0.classList.add('hidden');
+}
 
-	for1_p.addEventListener('click', function () {
-		userNome = deckVoce[1].nome;
-		game(deckVoce[1].for, getComputerChoice('for_pc'));
-		cardUserP.src = deckVoce[1].img;
-		nameUserP.innerHTML = deckVoce[1].nome;
-		atbUserP.innerHTML = deckVoce[1].for;
-		carta1.classList.add('hidden');
-	})
+function for1UserChoice() {
+	userNome = deckVoce[1].nome;
+	game(deckVoce[1].for, getComputerChoice('for_pc'));
+	cardUserP.src = deckVoce[1].img;
+	nameUserP.innerHTML = deckVoce[1].nome;
+	atbUserP.innerHTML = deckVoce[1].for;
+	carta1.classList.add('hidden');
+}
 
-	for2_p.addEventListener('click', function () {
-		userNome = deckVoce[2].nome;
-		game(deckVoce[2].for, getComputerChoice('for_pc'));
-		cardUserP.src = deckVoce[2].img;
-		nameUserP.innerHTML = deckVoce[2].nome;
-		atbUserP.innerHTML = deckVoce[2].for;
-		carta2.classList.add('hidden');
-	})
+function for2UserChoice() {
+	userNome = deckVoce[2].nome;
+	game(deckVoce[2].for, getComputerChoice('for_pc'));
+	cardUserP.src = deckVoce[2].img;
+	nameUserP.innerHTML = deckVoce[2].nome;
+	atbUserP.innerHTML = deckVoce[2].for;
+	carta2.classList.add('hidden');
+}
+
+function getUserChoice() {
+
+	int0_p.addEventListener('click', Int0UserChoice)
+
+	int1_p.addEventListener('click', Int1UserChoice)
+
+	int2_p.addEventListener('click', Int2UserChoice)
+
+	vel0_p.addEventListener('click', vel0UserChoice)
+
+	vel1_p.addEventListener('click', vel1UserChoice)
+
+	vel2_p.addEventListener('click', vel2UserChoice)
+
+	for0_p.addEventListener('click', for0UserChoice)
+
+	for1_p.addEventListener('click', for1UserChoice)
+
+	for2_p.addEventListener('click', for2UserChoice)
 }
 
 function getPCname() {
@@ -391,6 +410,7 @@ function game(UserChoice, computerChoice) {
 	cartaPCP.classList.remove('hidden');
 	result_div.classList.remove('hidden');
 	cartasG.classList.remove('hidden');
+	score = document.getElementById(`circle${i}`);
 
 	if (i < 2) {
 		if (UserChoice < computerChoice) {
@@ -411,6 +431,12 @@ function game(UserChoice, computerChoice) {
 		acao.innerHTML = `Jogar novamente!`;
 		acao.classList.add('ponteiro');
 		acao.addEventListener('click', function () {
+			while (i >= 0) {
+				score = document.getElementById(`circle${i}`);
+				score.classList.remove('green-glow');
+				score.classList.remove('red-glow');
+				i--;
+			}
 			i = 0;
 			voceScore = 0;
 			pcScore = 0;
@@ -447,4 +473,5 @@ main()
 
 // score final
 // parabéns vc venceu/que pena vc perdeu add glow score
-// arrumar score
+// n repetir cartas pc
+// add regras
