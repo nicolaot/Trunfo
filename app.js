@@ -1,5 +1,3 @@
-let voceScore = 0;
-let pcScore = 0;
 const smallvoce = "você".fontsize(3).sup();
 const smallpc = "pc".fontsize(3).sup();
 var card = '';
@@ -384,7 +382,6 @@ function getComputerChoice(computerChoice) {
 }
 
 function perdeu() {
-	pcScore ++;
 	score.classList.add('red-glow');
 	cartaUserP.classList.add('red-glow');
 	cartaPCP.classList.add('green-glow');
@@ -394,7 +391,6 @@ function perdeu() {
 }
 
 function ganhou() {
-	voceScore ++;
 	score.classList.add('green-glow');
 	cartaUserP.classList.add('green-glow');
 	cartaPCP.classList.add('red-glow');
@@ -438,8 +434,6 @@ function game(UserChoice, computerChoice) {
 				i--;
 			}
 			i = 0;
-			voceScore = 0;
-			pcScore = 0;
 			startGame();
 		})
 	}
