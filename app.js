@@ -4,6 +4,12 @@ var card = '';
 let i = 0;
 let deckVoce = [];
 let deckPC = [];
+let pcFoiInt = [];
+let pcFoiVel = [];
+let pcFoiFor = [];
+let atr = '';
+let index = 0;
+let pcMax = 0;
 
 // obj
 let cartas = [
@@ -268,71 +274,171 @@ function getUserChoice() {
 }
 
 function getPCname() {
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC0) {
+	if (pcMax == deckPC0) {
 		pcNome = deckPC[0].nome;
 		pcImg = deckPC[0].img;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC1) {
+	} else if (pcMax == deckPC1) {
 		pcNome = deckPC[1].nome;
 		pcImg = deckPC[1].img;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC2) {
+	} else {
 		pcNome = deckPC[2].nome;
 		pcImg = deckPC[2].img;
 	};
 	namePcP.innerHTML = pcNome;
 	cardPcP.src = pcImg;
-	return pcNome
+	return pcNome;
 }
 
 function getPCint() {
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC0) {
+	if (pcMax == deckPC0) {
 		pcAtb = deckPC[0].int;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC1) {
+		index = 0;
+		pushAll();
+	} else if (pcMax == deckPC1) {
 		pcAtb = deckPC[1].int;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC2) {
+		index = 1;
+		pushAll();
+	} else {
 		pcAtb = deckPC[2].int;
+		index = 2;
+		pushAll();
 	};
 
 	atbPcP.innerHTML = pcAtb;
 }
 
 function getPCvel() {
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC0) {
+	if (pcMax == deckPC0) {
 		pcAtb = deckPC[0].vel;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC1) {
+		index = 0;
+		pushAll();
+	} else if (pcMax == deckPC1) {
 		pcAtb = deckPC[1].vel;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC2) {
+		index = 1;
+		pushAll();
+	} else {
 		pcAtb = deckPC[2].vel;
+		index = 2;
+		pushAll();
 	};
 
 	atbPcP.innerHTML = pcAtb;
 }
 
 function getPCfor() {
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC0) {
+	if (pcMax == deckPC0) {
 		pcAtb = deckPC[0].for;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC1) {
+		index = 0;
+		pushAll();
+	} else if (pcMax == deckPC1) {
 		pcAtb = deckPC[1].for;
-	};
-
-	if (Math.max(deckPC0, deckPC1, deckPC2) == deckPC2) {
+		index = 1;
+		pushAll();
+	} else {
 		pcAtb = deckPC[2].for;
+		index = 2;
+		pushAll();
 	};
-
 	atbPcP.innerHTML = pcAtb;
+}
+
+function pushAll() {
+	pcFoiInt.push(parseInt(deckPC[index].int.slice(-1)));
+	pcFoiVel.push(parseInt(deckPC[index].vel.slice(-1)));
+	pcFoiFor.push(parseInt(deckPC[index].for.slice(-1)));
+}
+
+function PCfoiInt() {
+	if (pcFoiInt.includes(pcMax)) {
+		if (i == 1) {
+			if (pcMax == deckPC0) {
+				pcMax = Math.max(deckPC1, deckPC2);
+			} else if (pcMax == deckPC1) {
+				pcMax = Math.max(deckPC0, deckPC2);
+			} else {
+				pcMax = Math.max(deckPC0, deckPC1);
+			};
+		} else {
+			if (pcMax == deckPC0) {
+				pcMax = Math.max(deckPC1, deckPC2);
+				if (pcFoiInt.includes(pcMax)) {
+					pcMax = Math.min(deckPC1, deckPC2);
+				};
+			} else if (pcMax == deckPC1) {
+				pcMax = Math.max(deckPC0, deckPC2);
+				if (pcFoiInt.includes(pcMax)) {
+					pcMax = Math.min(deckPC0, deckPC2);
+				};
+			} else {
+				pcMax = Math.max(deckPC0, deckPC1);
+				if (pcFoiInt.includes(pcMax)) {
+					pcMax = Math.min(deckPC0, deckPC1);
+				};
+			};
+		};
+	};
+}
+
+function PCfoiVel() {
+	if (pcFoiVel.includes(pcMax)) {
+		if (i == 1) {
+			if (pcMax == deckPC0) {
+				pcMax = Math.max(deckPC1, deckPC2);
+			} else if (pcMax == deckPC1) {
+				pcMax = Math.max(deckPC0, deckPC2);
+			} else {
+				pcMax = Math.max(deckPC0, deckPC1);
+			};
+		} else {
+			if (pcMax == deckPC0) {
+				pcMax = Math.max(deckPC1, deckPC2);
+				if (pcFoiVel.includes(pcMax)) {
+					pcMax = Math.min(deckPC1, deckPC2);
+				};
+			} else if (pcMax == deckPC1) {
+				pcMax = Math.max(deckPC0, deckPC2);
+				if (pcFoiVel.includes(pcMax)) {
+					pcMax = Math.min(deckPC0, deckPC2);
+				};
+			} else {
+				pcMax = Math.max(deckPC0, deckPC1);
+				if (pcFoiVel.includes(pcMax)) {
+					pcMax = Math.min(deckPC0, deckPC1);
+				};
+			};
+		};
+	};
+}
+
+function PCfoiFor() {
+	if (pcFoiFor.includes(pcMax)) {
+		if (i == 1) {
+			if (pcMax == deckPC0) {
+				pcMax = Math.max(deckPC1, deckPC2);
+			} else if (pcMax == deckPC1) {
+				pcMax = Math.max(deckPC0, deckPC2);
+			} else {
+				pcMax = Math.max(deckPC0, deckPC1);
+			};
+		} else {
+			if (pcMax == deckPC0) {
+				pcMax = Math.max(deckPC1, deckPC2);
+				if (pcFoiFor.includes(pcMax)) {
+					pcMax = Math.min(deckPC1, deckPC2);
+				};
+			} else if (pcMax == deckPC1) {
+				pcMax = Math.max(deckPC0, deckPC2);
+				if (pcFoiFor.includes(pcMax)) {
+					pcMax = Math.min(deckPC0, deckPC2);
+				};
+			} else {
+				pcMax = Math.max(deckPC0, deckPC1);
+				if (pcFoiFor.includes(pcMax)) {
+					pcMax = Math.min(deckPC0, deckPC1);
+				};
+			};
+		}
+	};
 }
 
 function intChoice() {
@@ -340,9 +446,11 @@ function intChoice() {
 	deckPC0 = deckPC[0].int.slice(-1);
 	deckPC1 = deckPC[1].int.slice(-1);
 	deckPC2 = deckPC[2].int.slice(-1);
-	getPCname(Math.max(deckPC0, deckPC1, deckPC2));
-	getPCint(Math.max(deckPC0, deckPC1, deckPC2));
-	return Math.max(deckPC0, deckPC1, deckPC2);
+	pcMax = Math.max(deckPC0, deckPC1, deckPC2)
+	PCfoiInt();
+	getPCname();
+	getPCint();
+	return pcMax;
 }
 
 function velChoice() {
@@ -350,9 +458,11 @@ function velChoice() {
 	deckPC0 = deckPC[0].vel.slice(-1);
 	deckPC1 = deckPC[1].vel.slice(-1);
 	deckPC2 = deckPC[2].vel.slice(-1);
-	getPCname(Math.max(deckPC0, deckPC1, deckPC2));
-	getPCvel(Math.max(deckPC0, deckPC1, deckPC2));
-	return Math.max(deckPC0, deckPC1, deckPC2);
+	pcMax = Math.max(deckPC0, deckPC1, deckPC2);
+	PCfoiVel();
+	getPCname();
+	getPCvel();
+	return pcMax;
 }
 
 function forChoice() {
@@ -360,9 +470,11 @@ function forChoice() {
 	deckPC0 = deckPC[0].for.slice(-1);
 	deckPC1 = deckPC[1].for.slice(-1);
 	deckPC2 = deckPC[2].for.slice(-1);
-	getPCname(Math.max(deckPC0, deckPC1, deckPC2));
-	getPCfor(Math.max(deckPC0, deckPC1, deckPC2));
-	return Math.max(deckPC0, deckPC1, deckPC2);
+	pcMax = Math.max(deckPC0, deckPC1, deckPC2);
+	PCfoiFor();
+	getPCname();
+	getPCfor();
+	return pcMax;
 }
 
 function getComputerChoice(computerChoice) {
@@ -400,7 +512,6 @@ function ganhou() {
 }
 
 function game(UserChoice, computerChoice) {
-	console.log(i);
 	var UserChoice = UserChoice.slice(-1);
 	cartaUserP.classList.remove('hidden');
 	cartaPCP.classList.remove('hidden');
@@ -433,6 +544,9 @@ function game(UserChoice, computerChoice) {
 				score.classList.remove('red-glow');
 				i--;
 			}
+			pcFoiInt = [];
+			pcFoiVel = [];
+			pcFoiFor = [];
 			i = 0;
 			startGame();
 		})
@@ -467,5 +581,5 @@ main()
 
 // score final
 // parabéns vc venceu/que pena vc perdeu add glow score
-// n repetir cartas pc
 // add regras
+// media query
